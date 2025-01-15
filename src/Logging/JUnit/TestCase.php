@@ -194,6 +194,7 @@ abstract class TestCase
             (int) $node['line'],
             (int) $node['assertions'],
             (float) $node['time'],
+            $systemOutput,
         );
     }
 }
