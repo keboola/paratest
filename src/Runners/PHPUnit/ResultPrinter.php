@@ -716,6 +716,12 @@ final class ResultPrinter
                 $time,
             ));
 
+            if ($case instanceof SuccessTestCase || $case instanceof TestCaseWithMessage) {
+                if ($case->systemOutput) {
+                    $this->output->writeln('   │' . ' ' . $case->systemOutput);
+                }
+            }
+
             $failingCase = $case instanceof FailureTestCase || $case instanceof ErrorTestCase || $case instanceof WarningTestCase;
             if (! $this->options->verbose() && ! $failingCase) {
                 continue;
